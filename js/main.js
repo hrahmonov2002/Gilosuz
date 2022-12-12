@@ -14,7 +14,7 @@ const elModal = new bootstrap.Modal(
   );
 
 const renderPhones = function(showingProduct = products) {
-    elPhonesBody.innerHTML = "";
+    elPhonesBody.innerHTML = ""
     showingProduct.forEach(function (product) {
         const elPhonesCard = elPhonesTemplate.cloneNode(true).content;
         
@@ -120,8 +120,8 @@ elPhonesBody.addEventListener("click", function(evt) {
        setFormsValue(clickedProduct, "Edit product")
        elProductForm.dataset.type = "edit";
        elProductForm.dataset.editingId = clickedProductId;
+       console.log(clickedProductId);
     };
-    
 });
 
 // ============== MANUFACTURERS =============
@@ -235,8 +235,7 @@ elFilterForm.addEventListener("submit", (evt) => {
             .toLowerCase()
             .trim()
             .includes(searchValue.trim().toLowerCase()) &&
-            product.price >= +fromValue && (+toValue ? product.price <= +toValue : true) &&
-           product.model === manufacturerValue
+            product.price >= +fromValue && (+toValue ? product.price <= +toValue : true)
           );
 
         });
@@ -258,6 +257,6 @@ elFilterForm.addEventListener("submit", (evt) => {
             }
         });
 
-    renderPhones(filterProducts);
-    console.log(filterProducts);
-}) 
+        console.log(filterProducts);
+        renderPhones(filterProducts);
+    }) 
