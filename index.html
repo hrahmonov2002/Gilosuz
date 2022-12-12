@@ -7,19 +7,105 @@
   <title>Phones</title>
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <script src="https://kit.fontawesome.com/1a052ad93a.js" crossorigin="anonymous"></script>
+  <style>
+     #loader-wrappe {
+        font-size: 10px;
+        margin: 50px auto;
+        text-indent: -9999em;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: #0d6eff;
+        background: -moz-linear-gradient(
+          left,
+          #0d6eff 10%,
+          rgba(13, 110, 255, 0) 42%
+        );
+        background: -webkit-linear-gradient(
+          left,
+          #0d6eff 10%,
+          rgba(13, 110, 255, 0) 42%
+        );
+        background: -o-linear-gradient(
+          left,
+          #0d6eff 10%,
+          rgba(13, 110, 255, 0) 42%
+        );
+        background: -ms-linear-gradient(
+          left,
+          #0d6eff 10%,
+          rgba(13, 110, 255, 0) 42%
+        );
+        background: linear-gradient(
+          to right,
+          #0d6eff 10%,
+          rgba(13, 110, 255, 0) 42%
+        );
+        position: relative;
+        -webkit-animation: load3 1.4s infinite linear;
+        animation: load3 1.4s infinite linear;
+        -webkit-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        transform: translateZ(0);
+      }
+      .loader:before {
+        width: 50%;
+        height: 50%;
+        background: #0d6eff;
+        border-radius: 100% 0 0 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "";
+      }
+      .loader:after {
+        background: #fff;
+        width: 75%;
+        height: 75%;
+        border-radius: 50%;
+        content: "";
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+      }
+      @-webkit-keyframes load3 {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes load3 {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+  </style>
 </head>
 
 
 <body>
   <div class="container my-5">
     <div class="d-flex justify-content-between">
-      <h1 class="h2">Gilos.uz/smartphones</h1>
+      <h1 class="h2">Smartphones</h1>
 
       <button class="btn btn-primary px-4 product-add" data-bs-toggle="modal" data-bs-target="#edit-student-modal">
         <span class="me-2">Add product</span>
         <i class="fa-solid fa-plus"></i>
       </button>
     </div>
+
 
     <div class="row mt-5">
       <div class="col-3">
@@ -41,13 +127,13 @@
             </div>
           </div>
           
-          <div class="mb-3">
+          <!-- <div class="mb-3">
             <label for="manufacturer" class="form-label">Manufacturer</label>
             <select class="form-select" id="manufacturer">
               <option value="0">All</option>
-              <!-- manufacturers array bu yerga kelishi kerak -->
+              manufacturers array bu yerga kelishi kerak
             </select>
-          </div>
+          </div> -->
 
           <div class="mb-3">
             <label for="sortby" class="form-label">Sort by</label>
@@ -65,8 +151,9 @@
       <section class="col-9">
         <div class="d-flex justify-content-between align-items-baseline">
           <h2 class="h4 mb-4">Products list</h2>
-          <p>Count: 4</p>
+          <p class="count">Count: </p>
         </div>
+    <div id="loader-wrapper"></div>
           
         <ul id="phones-wrapper" class="row list-unstyled g-3">
         <!-- ===== template-li ==== -->
@@ -74,7 +161,7 @@
       </section>
     </div>
   </div>
-
+ 
         <!-- ========== MODAL ========== -->
 
 
@@ -142,12 +229,13 @@
 
         <p class="card-text product-date"></p>
 
-        <ul class="benefit-list d-flex flex-wrap list-unstyled">
+        <p class="benefit-list me-1 mb-1 badge bg-primary"></p>
+        <!-- <ul class="benefit-list d-flex flex-wrap list-unstyled"> -->
           <!-- <li class="badge bg-primary me-1 mb-1">8gb</li>
           <li class="badge bg-primary me-1 mb-1">128gb</li>
           <li class="badge bg-primary me-1 mb-1">Waterproof</li>
           <li class="badge bg-primary me-1 mb-1">Falon yaxshi tarafi</li> -->
-        </ul>
+        <!-- </ul> -->
 
         <div class="position-absolute top-0 end-0 d-flex">
           <button class="btn rounded-0 btn-secondary edit-product" data-id="" data-bs-toggle="modal" data-bs-target="#edit-student-modal"><i class="fa-solid fa-pen" style="pointer-events: none;"></i></button>
